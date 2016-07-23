@@ -48,7 +48,7 @@ module Gitsh
         line_editor: line_editor,
       )
       line_editor.completer_quote_characters = '\'"'
-      line_editor.completer_word_break_characters = ' &|;:'
+      line_editor.completer_word_break_characters = ' &|;'
       line_editor.quoting_detection_proc = QuoteDetector.new
     end
 
