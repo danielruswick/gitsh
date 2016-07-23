@@ -1,5 +1,7 @@
 module Gitsh
   class CompletionEscaper
+    QUOTABLE_CHARACTERS = [' ']
+
     def initialize(completer, options)
       @completer = completer
       @line_editor = options[:line_editor]
@@ -36,7 +38,7 @@ module Gitsh
         if completing_quoted_argument?
           option.strip
         else
-          quotable_characters = [' '].join #FIXME
+          quotable_characters = QUOTABLE_CHARACTERS.join
           option.gsub(/([#{quotable_characters}])(?!$)/) { |char| "\\#{char}" }
         end
       end
